@@ -1,12 +1,17 @@
 module.exports = {
-    'MSG_T_001': 'Empty',
-    'MSG_A_001': 'Slug is not null',
-    'MSG_A_002': 'Delete article successful',
-    'MSG_A_003': 'Update article successful',
-    'MSG_A_004': 'Create article successful',
-    'MSG_C_004': 'Create comment successful',
-    'MSG_C_005': 'Delete comment successful',
-    'MSG_F_001': 'Create Favorite successful',
-    'MSG_F_002': 'Delete Favorite successful',
-    'MSG_U_001': 'Create Users successful'
-}
+  MSG_T_001: 'Empty',
+  MSG_A_001: 'Slug is not null',
+  MSG_A_002: 'Delete article successful',
+  MSG_A_003: 'Update article successful',
+  MSG_A_004: 'Create article successful',
+  MSG_C_004: 'Create comment successful',
+  MSG_C_005: 'Delete comment successful',
+  MSG_F_001: 'Create Favorite successful',
+  MSG_F_002: 'Delete Favorite successful',
+  MSG_U_001: 'Create Users successful',
+  MSG_U_002: 'Users is not null',
+  MSG_U_003: 'Authentication failed. User not found.',
+  MSG_U_004: 'Login okie Enjoy your token!',
+  MSG_U_005: 'Authentication failed.',
+  MSG_U_006: 'Update User successful.',
+};
