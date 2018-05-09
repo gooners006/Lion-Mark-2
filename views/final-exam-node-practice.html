@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title></title>
+<!-- 2018-04-27 Fri 14:32 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Duong Tran">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script type="text/javascript">
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-9"><h1 class="title"></h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Overview</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+You need to build a backend that provide the functionality for your Medium clone called LION.
+</p>
+
+<p>
+Your user will be able to:
+</p>
+<ol class="org-ol">
+<li>Register for a new account
+</li>
+<li>Create a new articles
+</li>
+<li>Add comment on a articles
+</li>
+<li>Like an articles
+</li>
+<li>Add Tag to article
+</li>
+</ol>
+
+<p>
+Based on the API Spec write that API Service using the dependencies below (may not needed):
+</p>
+<ul class="org-ul">
+<li>expressjs - The server for handling and routing HTTP requests
+</li>
+<li>express-jwt - Middleware for validating JWTs for authentication
+</li>
+<li>jsonwebtoken - For generating JWTs used by authentication
+</li>
+<li>mongoose - For modeling and mapping MongoDB data to javascript
+</li>
+<li>mongoose-unique-validator - For handling unique validation errors in Mongoose. Mongoose only handles validation at the document level, so a unique index across a collection will throw an exception at the driver level. The mongoose-unique-validator plugin helps us by formatting the error like a normal mongoose ValidationError.
+</li>
+<li>passport - For handling user authentication
+</li>
+<li>slug - For encoding titles into a URL-friendly format
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Passing Criteria</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Must write API Test script for each Endpoint
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> API Spec</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Make sure to handle CORS and return correct Access-Control-Allow-Origin
+</p>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Authentication Header:</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+
+<pre class="src src-js">Authorization: Token jwt.token.here
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> JSON Objects returned by API</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Make sure the right content type like Content-Type: application/json; charset=utf-8 is correctly returned.
+</p>
+</div>
+
+<div id="outline-container-sec-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1"><span class="section-number-4">3.2.1</span> Users (for authentication)</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"user"</span>: <span style="color: #bc6ec5;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"email"</span>: <span style="color: #2d9574;">"jake@jake.jake"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"token"</span>: <span style="color: #2d9574;">"jwt.token.here"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"username"</span>: <span style="color: #2d9574;">"jake"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"bio"</span>: <span style="color: #2d9574;">"I work at statefarm"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"image"</span>: <span style="color: #a45bad;">null</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2"><span class="section-number-4">3.2.2</span> Single Article</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"article"</span>: <span style="color: #bc6ec5;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"slug"</span>: <span style="color: #2d9574;">"how-to-train-your-dragon"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"title"</span>: <span style="color: #2d9574;">"How to train your dragon"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"description"</span>: <span style="color: #2d9574;">"Ever wonder how?"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"body"</span>: <span style="color: #2d9574;">"It takes a Jacobian"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"tagList"</span>: <span style="color: #2d9574;">[</span><span style="color: #2d9574;">"dragons"</span>, <span style="color: #2d9574;">"training"</span><span style="color: #2d9574;">]</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"createdAt"</span>: "<span style="color: #a45bad;">2016</span>-<span style="color: #a45bad;">02</span>-<span style="color: #a45bad;">18T03</span>:<span style="color: #a45bad;">22</span>:<span style="color: #a45bad;">56</span>.<span style="color: #a45bad;">637Z</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"updatedAt"</span>: "<span style="color: #a45bad;">2016</span>-<span style="color: #a45bad;">02</span>-<span style="color: #a45bad;">18T03</span>:<span style="color: #a45bad;">48</span>:<span style="color: #a45bad;">35</span>.<span style="color: #a45bad;">824Z</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"favorited"</span>: <span style="color: #a45bad;">false</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"favoritesCount"</span>: <span style="color: #a45bad;">0</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"author"</span>: <span style="color: #2d9574;">{</span>
+      <span style="color: #4f97d7; font-weight: bold;">"username"</span>: <span style="color: #2d9574;">"jake"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"bio"</span>: <span style="color: #2d9574;">"I work at statefarm"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"image"</span>: <span style="color: #2d9574;">"https://i.stack.imgur.com/xHWG8.jpg"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"following"</span>: <span style="color: #a45bad;">false</span>
+    <span style="color: #2d9574;">}</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-3" class="outline-4">
+<h4 id="sec-3-2-3"><span class="section-number-4">3.2.3</span> Multiple Articles</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"articles"</span>:<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"slug"</span>: <span style="color: #2d9574;">"how-to-train-your-dragon"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"title"</span>: <span style="color: #2d9574;">"How to train your dragon"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"description"</span>: <span style="color: #2d9574;">"Ever wonder how?"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"body"</span>: <span style="color: #2d9574;">"It takes a Jacobian"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"tagList"</span>: <span style="color: #67b11d;">[</span><span style="color: #2d9574;">"dragons"</span>, <span style="color: #2d9574;">"training"</span><span style="color: #67b11d;">]</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"createdAt"</span>: "<span style="color: #a45bad;">2016</span>-<span style="color: #a45bad;">02</span>-<span style="color: #a45bad;">18T03</span>:<span style="color: #a45bad;">22</span>:<span style="color: #a45bad;">56</span>.<span style="color: #a45bad;">637Z</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"updatedAt"</span>: "<span style="color: #a45bad;">2016</span>-<span style="color: #a45bad;">02</span>-<span style="color: #a45bad;">18T03</span>:<span style="color: #a45bad;">48</span>:<span style="color: #a45bad;">35</span>.<span style="color: #a45bad;">824Z</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"favorited"</span>: <span style="color: #a45bad;">false</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"favoritesCount"</span>: <span style="color: #a45bad;">0</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"author"</span>: <span style="color: #67b11d;">{</span>
+      <span style="color: #4f97d7; font-weight: bold;">"username"</span>: <span style="color: #2d9574;">"jake"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"bio"</span>: <span style="color: #2d9574;">"I work at statefarm"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"image"</span>: <span style="color: #2d9574;">"https://i.stack.imgur.com/xHWG8.jpg"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"following"</span>: <span style="color: #a45bad;">false</span>
+    <span style="color: #67b11d;">}</span>
+  <span style="color: #2d9574;">}</span>, <span style="color: #2d9574;">{</span>
+
+    <span style="color: #4f97d7; font-weight: bold;">"slug"</span>: "how-to-train-your-dragon-<span style="color: #a45bad;">2</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"title"</span>: "How to train your dragon <span style="color: #a45bad;">2</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"description"</span>: <span style="color: #2d9574;">"So toothless"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"body"</span>: <span style="color: #2d9574;">"It a dragon"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"tagList"</span>: <span style="color: #67b11d;">[</span><span style="color: #2d9574;">"dragons"</span>, <span style="color: #2d9574;">"training"</span><span style="color: #67b11d;">]</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"createdAt"</span>: "<span style="color: #a45bad;">2016</span>-<span style="color: #a45bad;">02</span>-<span style="color: #a45bad;">18T03</span>:<span style="color: #a45bad;">22</span>:<span style="color: #a45bad;">56</span>.<span style="color: #a45bad;">637Z</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"updatedAt"</span>: "<span style="color: #a45bad;">2016</span>-<span style="color: #a45bad;">02</span>-<span style="color: #a45bad;">18T03</span>:<span style="color: #a45bad;">48</span>:<span style="color: #a45bad;">35</span>.<span style="color: #a45bad;">824Z</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"favorited"</span>: <span style="color: #a45bad;">false</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"favoritesCount"</span>: <span style="color: #a45bad;">0</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"author"</span>: <span style="color: #67b11d;">{</span>
+      <span style="color: #4f97d7; font-weight: bold;">"username"</span>: <span style="color: #2d9574;">"jake"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"bio"</span>: <span style="color: #2d9574;">"I work at statefarm"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"image"</span>: <span style="color: #2d9574;">"https://i.stack.imgur.com/xHWG8.jpg"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"following"</span>: <span style="color: #a45bad;">false</span>
+    <span style="color: #67b11d;">}</span>
+  <span style="color: #2d9574;">}</span><span style="color: #bc6ec5;">]</span>,
+  <span style="color: #4f97d7; font-weight: bold;">"articlesCount"</span>: <span style="color: #a45bad;">2</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-4" class="outline-4">
+<h4 id="sec-3-2-4"><span class="section-number-4">3.2.4</span> Single Comment</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"comment"</span>: <span style="color: #bc6ec5;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"id"</span>: <span style="color: #a45bad;">1</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"createdAt"</span>: "<span style="color: #a45bad;">2016</span>-<span style="color: #a45bad;">02</span>-<span style="color: #a45bad;">18T03</span>:<span style="color: #a45bad;">22</span>:<span style="color: #a45bad;">56</span>.<span style="color: #a45bad;">637Z</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"updatedAt"</span>: "<span style="color: #a45bad;">2016</span>-<span style="color: #a45bad;">02</span>-<span style="color: #a45bad;">18T03</span>:<span style="color: #a45bad;">22</span>:<span style="color: #a45bad;">56</span>.<span style="color: #a45bad;">637Z</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"body"</span>: <span style="color: #2d9574;">"It takes a Jacobian"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"author"</span>: <span style="color: #2d9574;">{</span>
+      <span style="color: #4f97d7; font-weight: bold;">"username"</span>: <span style="color: #2d9574;">"jake"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"bio"</span>: <span style="color: #2d9574;">"I work at statefarm"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"image"</span>: <span style="color: #2d9574;">"https://i.stack.imgur.com/xHWG8.jpg"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"following"</span>: <span style="color: #a45bad;">false</span>
+    <span style="color: #2d9574;">}</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-5" class="outline-4">
+<h4 id="sec-3-2-5"><span class="section-number-4">3.2.5</span> Multiple Comments</h4>
+<div class="outline-text-4" id="text-3-2-5">
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"comments"</span>: <span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"id"</span>: <span style="color: #a45bad;">1</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"createdAt"</span>: "<span style="color: #a45bad;">2016</span>-<span style="color: #a45bad;">02</span>-<span style="color: #a45bad;">18T03</span>:<span style="color: #a45bad;">22</span>:<span style="color: #a45bad;">56</span>.<span style="color: #a45bad;">637Z</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"updatedAt"</span>: "<span style="color: #a45bad;">2016</span>-<span style="color: #a45bad;">02</span>-<span style="color: #a45bad;">18T03</span>:<span style="color: #a45bad;">22</span>:<span style="color: #a45bad;">56</span>.<span style="color: #a45bad;">637Z</span>",
+    <span style="color: #4f97d7; font-weight: bold;">"body"</span>: <span style="color: #2d9574;">"It takes a Jacobian"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"author"</span>: <span style="color: #67b11d;">{</span>
+      <span style="color: #4f97d7; font-weight: bold;">"username"</span>: <span style="color: #2d9574;">"jake"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"bio"</span>: <span style="color: #2d9574;">"I work at statefarm"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"image"</span>: <span style="color: #2d9574;">"https://i.stack.imgur.com/xHWG8.jpg"</span>,
+      <span style="color: #4f97d7; font-weight: bold;">"following"</span>: <span style="color: #a45bad;">false</span>
+    <span style="color: #67b11d;">}</span>
+  <span style="color: #2d9574;">}</span><span style="color: #bc6ec5;">]</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-6" class="outline-4">
+<h4 id="sec-3-2-6"><span class="section-number-4">3.2.6</span> List of Tags</h4>
+<div class="outline-text-4" id="text-3-2-6">
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"tags"</span>: <span style="color: #bc6ec5;">[</span>
+    <span style="color: #2d9574;">"reactjs"</span>,
+    <span style="color: #2d9574;">"angularjs"</span>
+  <span style="color: #bc6ec5;">]</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Errors and Status Codes</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+If a request fails any validations, expect a 422 and errors in the following format:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"errors"</span>:<span style="color: #bc6ec5;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"body"</span>: <span style="color: #2d9574;">[</span>
+      <span style="color: #2d9574;">"reason, can't be empty"</span>
+    <span style="color: #2d9574;">]</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+<b>Other status codes</b>:
+401 for Unauthorized requests, when a request requires authentication but it isn't provided
+</p>
+
+<p>
+403 for Forbidden requests, when a request may be valid but the user doesn't have permissions to perform the action
+</p>
+
+<p>
+404 for Not found requests, when a resource can't be found to fulfill the request
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Endpoints:</h3>
+<div class="outline-text-3" id="text-3-4">
+</div><div id="outline-container-sec-3-4-1" class="outline-4">
+<h4 id="sec-3-4-1"><span class="section-number-4">3.4.1</span> Authentication:</h4>
+<div class="outline-text-4" id="text-3-4-1">
+<pre class="example">
+POST /api/users/login
+</pre>
+<p>
+Example request body:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"user"</span>:<span style="color: #bc6ec5;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"email"</span>: <span style="color: #2d9574;">"jake@jake.jake"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"password"</span>: <span style="color: #2d9574;">"jakejake"</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+No authentication required, returns a User
+</p>
+
+<p>
+Required fields: email, password
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-2" class="outline-4">
+<h4 id="sec-3-4-2"><span class="section-number-4">3.4.2</span> Registration:</h4>
+<div class="outline-text-4" id="text-3-4-2">
+<pre class="example">
+POST /api/users
+</pre>
+
+<p>
+Example request body:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"user"</span>:<span style="color: #bc6ec5;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"username"</span>: <span style="color: #2d9574;">"Jacob"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"email"</span>: <span style="color: #2d9574;">"jake@jake.jake"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"password"</span>: <span style="color: #2d9574;">"jakejake"</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+No authentication required, returns a User
+</p>
+
+<p>
+Required fields: email, username, password
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-3" class="outline-4">
+<h4 id="sec-3-4-3"><span class="section-number-4">3.4.3</span> Get Current User</h4>
+<div class="outline-text-4" id="text-3-4-3">
+<pre class="example">
+GET /api/user
+</pre>
+
+<p>
+Authentication required, returns a User that's the current user
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-4" class="outline-4">
+<h4 id="sec-3-4-4"><span class="section-number-4">3.4.4</span> Update User</h4>
+<div class="outline-text-4" id="text-3-4-4">
+<div class="org-src-container">
+
+<pre class="src src-js">PUT /api/user
+</pre>
+</div>
+
+<p>
+Example request body:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"user"</span>:<span style="color: #bc6ec5;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"email"</span>: <span style="color: #2d9574;">"jake@jake.jake"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"bio"</span>: <span style="color: #2d9574;">"I like to skateboard"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"image"</span>: <span style="color: #2d9574;">"https://i.stack.imgur.com/xHWG8.jpg"</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+
+<p>
+Authentication required, returns the User
+</p>
+
+<p>
+Accepted fields: email, username, password, image, bio
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-5" class="outline-4">
+<h4 id="sec-3-4-5"><span class="section-number-4">3.4.5</span> List Articles</h4>
+<div class="outline-text-4" id="text-3-4-5">
+<pre class="example">
+GET /api/articles
+</pre>
+
+<p>
+Returns most recent articles globally by default, provide tag, author or favorited query parameter to filter results
+</p>
+
+<p>
+Query Parameters:
+</p>
+
+<p>
+Filter by tag:
+</p>
+
+<pre class="example">
+?tag=AngularJS
+</pre>
+
+<p>
+Filter by author:
+</p>
+
+<pre class="example">
+?author=jake
+</pre>
+
+<p>
+Favorited by user:
+</p>
+
+<pre class="example">
+?favorited=jake
+</pre>
+
+<p>
+Limit number of articles (default is 20):
+</p>
+
+<pre class="example">
+?limit=20
+</pre>
+
+<p>
+Offset/skip number of articles (default is 0):
+</p>
+
+<pre class="example">
+?offset=0
+</pre>
+
+<p>
+Authentication optional, will return multiple articles, ordered by most recent first
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-6" class="outline-4">
+<h4 id="sec-3-4-6"><span class="section-number-4">3.4.6</span> Feed Articles</h4>
+<div class="outline-text-4" id="text-3-4-6">
+<pre class="example">
+GET /api/articles/feed
+</pre>
+
+<p>
+Can also take limit and offset query parameters like List Articles
+</p>
+
+<p>
+Authentication required, will return multiple articles created by followed users, ordered by most recent first.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-7" class="outline-4">
+<h4 id="sec-3-4-7"><span class="section-number-4">3.4.7</span> Get Article</h4>
+<div class="outline-text-4" id="text-3-4-7">
+<pre class="example">
+GET /api/articles/:slug
+</pre>
+
+<p>
+No authentication required, will return single article
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-8" class="outline-4">
+<h4 id="sec-3-4-8"><span class="section-number-4">3.4.8</span> Create Article</h4>
+<div class="outline-text-4" id="text-3-4-8">
+<pre class="example">
+POST /api/articles
+</pre>
+
+<p>
+Example request body:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"article"</span>: <span style="color: #bc6ec5;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"title"</span>: <span style="color: #2d9574;">"How to train your dragon"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"description"</span>: <span style="color: #2d9574;">"Ever wonder how?"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"body"</span>: <span style="color: #2d9574;">"You have to believe"</span>,
+    <span style="color: #4f97d7; font-weight: bold;">"tagList"</span>: <span style="color: #2d9574;">[</span><span style="color: #2d9574;">"reactjs"</span>, <span style="color: #2d9574;">"angularjs"</span>, <span style="color: #2d9574;">"dragons"</span><span style="color: #2d9574;">]</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+
+<p>
+Authentication required, will return an Article
+</p>
+
+<p>
+Required fields: title, description, body
+</p>
+
+<p>
+Optional fields: tagList as an array of Strings
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-9" class="outline-4">
+<h4 id="sec-3-4-9"><span class="section-number-4">3.4.9</span> Update Article</h4>
+<div class="outline-text-4" id="text-3-4-9">
+<pre class="example">
+PUT /api/articles/:slug
+</pre>
+
+<p>
+Example request body:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"article"</span>: <span style="color: #bc6ec5;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"title"</span>: <span style="color: #2d9574;">"Did you train your dragon?"</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+</pre>
+</div>
+
+<p>
+Authentication required, returns the updated Article
+</p>
+
+<p>
+Optional fields: title, description, body
+</p>
+
+<p>
+The slug also gets updated when the title is changed
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-10" class="outline-4">
+<h4 id="sec-3-4-10"><span class="section-number-4">3.4.10</span> Delete Article</h4>
+<div class="outline-text-4" id="text-3-4-10">
+<pre class="example">
+DELETE /api/articles/:slug
+</pre>
+
+<p>
+Authentication required
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-11" class="outline-4">
+<h4 id="sec-3-4-11"><span class="section-number-4">3.4.11</span> Add Comments to an Article</h4>
+<div class="outline-text-4" id="text-3-4-11">
+<pre class="example">
+POST /api/articles/:slug/comments
+</pre>
+
+<p>
+Example request body:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-json"><span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">"comment"</span>: <span style="color: #bc6ec5;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">"body"</span>: <span style="color: #2d9574;">"His name was my name too."</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+
+<p>
+Authentication required, returns the created Comment
+</p>
+
+<p>
+Required field: body
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-12" class="outline-4">
+<h4 id="sec-3-4-12"><span class="section-number-4">3.4.12</span> Get Comments from an Article</h4>
+<div class="outline-text-4" id="text-3-4-12">
+<pre class="example">
+GET /api/articles/:slug/comments
+</pre>
+
+<p>
+Authentication optional, returns multiple comments
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-13" class="outline-4">
+<h4 id="sec-3-4-13"><span class="section-number-4">3.4.13</span> Delete Comment</h4>
+<div class="outline-text-4" id="text-3-4-13">
+<pre class="example">
+DELETE /api/articles/:slug/comments/:id
+</pre>
+
+<p>
+Authentication required
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-14" class="outline-4">
+<h4 id="sec-3-4-14"><span class="section-number-4">3.4.14</span> Favorite Article</h4>
+<div class="outline-text-4" id="text-3-4-14">
+<pre class="example">
+POST /api/articles/:slug/favorite
+</pre>
+
+<p>
+Authentication required, returns the Article
+</p>
+
+<p>
+No additional parameters required
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-15" class="outline-4">
+<h4 id="sec-3-4-15"><span class="section-number-4">3.4.15</span> Unfavorite Article</h4>
+<div class="outline-text-4" id="text-3-4-15">
+<pre class="example">
+DELETE /api/articles/:slug/favorite
+</pre>
+
+<p>
+Authentication required, returns the Article
+</p>
+
+<p>
+No additional parameters required
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4-16" class="outline-4">
+<h4 id="sec-3-4-16"><span class="section-number-4">3.4.16</span> Get Tags</h4>
+<div class="outline-text-4" id="text-3-4-16">
+<pre class="example">
+GET /api/tags
+</pre>
+
+<p>
+No authentication required, returns a List of Tags
+</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="col-md-3"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. Overview</a></li>
+<li><a href="#sec-2">2. Passing Criteria</a></li>
+<li><a href="#sec-3">3. API Spec</a>
+<ul class="nav">
+<li><a href="#sec-3-1">3.1. Authentication Header:</a></li>
+<li><a href="#sec-3-2">3.2. JSON Objects returned by API</a></li>
+<li><a href="#sec-3-3">3.3. Errors and Status Codes</a></li>
+<li><a href="#sec-3-4">3.4. Endpoints:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Duong Tran</p>
+<p class="date">Created: 2018-04-27 Fri 14:32</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org-mode</a> 9.1.7)</p>
+</div>
+</footer>
+</body>
+</html>
